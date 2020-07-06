@@ -9,8 +9,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var isActive: Bool = false
     var body: some View {
-        Text("Hello, World!")
+        NavigationView{
+            VStack{
+                NavigationLink(destination:SwiftUIView(),
+                               isActive: self.$isActive){
+                                Button("Go to Detail View"){
+                                    if(self.isActive){
+                                        self.isActive = false
+                                    }else{
+                                        self.isActive = true
+                                    }
+                                    print(self.isActive)
+                                }
+                }
+            }
+        }
+    .navigationBarTitle("Main")
     }
 }
 
